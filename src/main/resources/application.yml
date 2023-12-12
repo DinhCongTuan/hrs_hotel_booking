@@ -1,0 +1,31 @@
+server:
+  port: 8080
+  servlet:
+    contextPath: /api
+---
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/hotel_booking_db
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update # or create-drop (for development)
+    properties:
+      hibernate:
+        format_sql: true # Optional: format SQL logs for better readability
+        show_sql: false   # Optional: log SQL queries
+logging:
+  level:
+    com:
+      tuandc:
+        interview:
+          hrs_hotel_booking:
+            configuration: INFO
+
+# Configure logging to output to the console
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} %-5level [%thread] %logger{0} - %msg%n"
+
